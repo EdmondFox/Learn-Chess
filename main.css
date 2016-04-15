@@ -1,0 +1,219 @@
+#container {
+    position:relative;
+    width:1000px;
+    margin:0 auto;
+}
+
+#boardContainer {
+    display:inline-block;
+    position:relative;
+    width:710px;
+    height:710px;
+    margin:0 auto;
+    background:url("wood.jpg");
+}
+
+#chessBoard {
+    font-size:60px;
+    position:absolute;
+    top: 30px;
+    left: 30px;
+    height:640px;
+    width:640px;
+    border:5px solid #6f543d;
+}
+
+#colIndicatorTop {
+    position:absolute;
+    top: 0;
+    left: 35px;
+    width:640px;
+    height:30px;
+    background: rgba(181, 136, 99, 0.0);
+}
+
+#rowIndicatorLeft {
+    position:absolute;
+    top: 35px;
+    left: 0;
+    width:30px;
+    height:640px;
+    background: rgba(181, 136, 99, 0.0);
+}
+
+#rowIndicatorRight {
+    position:absolute;
+    top: 35px;
+    right: 0;
+    width:30px;
+    height:640px;
+    background: rgba(181, 136, 99, 0.0);
+}
+
+#colIndicatorBottom {
+    position:absolute;
+    bottom: 0;
+    left: 35px;
+    width:640px;
+    height:30px;
+    background: rgba(181, 136, 99, 0.0);
+}
+
+.indicatorRow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:16px;
+    text-shadow: 0 0 2px #584331;
+    color:rgba(240, 217, 181, 0.9);
+    width:640px;
+    height:30px;
+    border:0px solid #6f543d;
+    border-bottom:none;
+}
+
+.vCell {
+    display:inline-block;
+    line-height:30px;
+    width:80px;
+    height:30px;
+    text-align: center;
+    /* box-shadow: inset 0px 0px 1px 1px #af5d1a; */
+}
+
+.indicatorCol {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:16px;
+    text-shadow: 0 0 2px #584331;
+    color:rgba(240, 217, 181, 0.9);
+    width:30px;
+    height:640px;
+    border:0px solid #6f543d;
+    border-right:none;
+}
+
+.hCell {
+    display:block;
+    line-height: 80px;
+    width:30px;
+    height:80px;
+    text-align: center;
+    /* box-shadow: inset 0px 0px 1px 1px #af5d1a; */
+}
+
+.row {
+    height:80px;
+    display:block;
+}
+
+.cell {
+    display:table-cell; /* required instead of inline-block due to misplacement of cell when moving the pieces*/
+    width:80px;
+    height:80px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.row:nth-child(even) > .cell:nth-child(even),
+.row:nth-child(odd) > .cell:nth-child(odd) {
+    background:rgba(181, 136, 99, 0.8);
+}
+
+.row:nth-child(even) > .cell:nth-child(odd),
+.row:nth-child(odd) > .cell:nth-child(even) {
+    background:rgba(240, 217, 181, 0.9);
+}
+
+
+#dashboard {
+    display:inline-block;
+    position:absolute;
+    width:180px;
+    height:640px;
+    right:0;
+    border-top: 35px solid rgba(181, 136, 99, 1);
+    border-right: 35px solid rgba(174, 120, 76, 1);
+    border-bottom: 35px solid rgba(181, 136, 99, 1);
+    border-left: 35px solid rgba(174, 120, 76, 1);
+    background-color:rgba(181, 136, 99, 0.8);
+    box-shadow:0px 0px 1px 2px #6f543d;
+    overflow:hidden;
+}
+
+#myList {
+    position:absolute;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: ;
+    color:#3e2f21;
+    font-size:19px;
+    margin:10px 0 0 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -17px;
+    overflow-y: scroll;
+}
+
+#myList li {
+    margin:0px;
+}
+
+.replaced {
+    text-decoration: line-through;
+}
+
+.white {
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+.whitePiece {
+    color:white;
+}
+/* Inset box-shadow for the chess board ----------------------------------------------------------- */
+
+#boardContainer {
+   -webkit-box-shadow:
+inset 0px 1px 0px rgba(181, 136, 99, 0.5), inset 1px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -1px 0px rgba(181, 136, 99, 0.5), inset -1px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 2px 0px rgba(181, 136, 99, 0.5), inset 2px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -2px 0px rgba(181, 136, 99, 0.5), inset -2px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 3px 0px rgba(181, 136, 99, 0.5), inset 3px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -3px 0px rgba(181, 136, 99, 0.5), inset -3px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 4px 0px rgba(181, 136, 99, 0.5), inset 4px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -4px 0px rgba(181, 136, 99, 0.5), inset -4px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 5px 0px rgba(181, 136, 99, 0.5), inset 5px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -5px 0px rgba(181, 136, 99, 0.5), inset -5px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 6px 0px rgba(181, 136, 99, 0.5), inset 6px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -6px 0px rgba(181, 136, 99, 0.5), inset -6px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 7px 0px rgba(181, 136, 99, 0.5), inset 7px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -7px 0px rgba(181, 136, 99, 0.5), inset -7px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 8px 0px rgba(181, 136, 99, 0.5), inset 8px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -8px 0px rgba(181, 136, 99, 0.5), inset -8px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 9px 0px rgba(181, 136, 99, 0.5), inset 9px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -9px 0px rgba(181, 136, 99, 0.5), inset -9px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 10px 0px rgba(181, 136, 99, 0.5), inset 10px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -10px 0px rgba(181, 136, 99, 0.5), inset -10px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 11px 0px rgba(181, 136, 99, 0.5), inset 11px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -11px 0px rgba(181, 136, 99, 0.5), inset -11px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 12px 0px rgba(181, 136, 99, 0.5), inset 12px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -12px 0px rgba(181, 136, 99, 0.5), inset -12px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 13px 0px rgba(181, 136, 99, 0.5), inset 13px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -13px 0px rgba(181, 136, 99, 0.5), inset -13px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 14px 0px rgba(181, 136, 99, 0.5), inset 14px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -14px 0px rgba(181, 136, 99, 0.5), inset -14px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 15px 0px rgba(181, 136, 99, 0.5), inset 15px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -15px 0px rgba(181, 136, 99, 0.5), inset -15px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 16px 0px rgba(181, 136, 99, 0.5), inset 16px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -16px 0px rgba(181, 136, 99, 0.5), inset -16px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 17px 0px rgba(181, 136, 99, 0.5), inset 17px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -17px 0px rgba(181, 136, 99, 0.5), inset -17px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 18px 0px rgba(181, 136, 99, 0.5), inset 18px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -18px 0px rgba(181, 136, 99, 0.5), inset -18px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 19px 0px rgba(181, 136, 99, 0.5), inset 19px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -19px 0px rgba(181, 136, 99, 0.5), inset -19px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 20px 0px rgba(181, 136, 99, 0.5), inset 20px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -20px 0px rgba(181, 136, 99, 0.5), inset -20px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 21px 0px rgba(181, 136, 99, 0.5), inset 21px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -21px 0px rgba(181, 136, 99, 0.5), inset -21px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 22px 0px rgba(181, 136, 99, 0.5), inset 22px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -22px 0px rgba(181, 136, 99, 0.5), inset -22px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 23px 0px rgba(181, 136, 99, 0.5), inset 23px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -23px 0px rgba(181, 136, 99, 0.5), inset -23px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 24px 0px rgba(181, 136, 99, 0.5), inset 24px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -24px 0px rgba(181, 136, 99, 0.5), inset -24px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 25px 0px rgba(181, 136, 99, 0.5), inset 25px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -25px 0px rgba(181, 136, 99, 0.5), inset -25px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 26px 0px rgba(181, 136, 99, 0.5), inset 26px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -26px 0px rgba(181, 136, 99, 0.5), inset -26px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 27px 0px rgba(181, 136, 99, 0.5), inset 27px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -27px 0px rgba(181, 136, 99, 0.5), inset -27px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 28px 0px rgba(181, 136, 99, 0.5), inset 28px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -28px 0px rgba(181, 136, 99, 0.5), inset -28px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 29px 0px rgba(181, 136, 99, 0.5), inset 29px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -29px 0px rgba(181, 136, 99, 0.5), inset -29px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 30px 0px rgba(181, 136, 99, 0.5), inset 30px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -30px 0px rgba(181, 136, 99, 0.5), inset -30px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 31px 0px rgba(181, 136, 99, 0.5), inset 31px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -31px 0px rgba(181, 136, 99, 0.5), inset -31px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 32px 0px rgba(181, 136, 99, 0.5), inset 32px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -32px 0px rgba(181, 136, 99, 0.5), inset -32px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 33px 0px rgba(181, 136, 99, 0.5), inset 33px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -33px 0px rgba(181, 136, 99, 0.5), inset -33px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 34px 0px rgba(181, 136, 99, 0.5), inset 34px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -34px 0px rgba(181, 136, 99, 0.5), inset -34px 0px 0px rgba(174, 120, 76, 0.5), 
+inset 0px 35px 0px rgba(181, 136, 99, 0.5), inset 35px 0px 0px rgba(174, 120, 76, 0.5), inset 0px -35px 0px rgba(181, 136, 99, 0.5), inset -35px 0px 0px rgba(174, 120, 76, 0.5),
+       0px 0px 1px 2px #6f543d;
+       
+}
