@@ -44,8 +44,10 @@ function highlightMoves(cell, myColor, pieceColor, oppPieceColor, movesArray, pi
                 }
             }
         }
-
+        
         function pawnMovesDirectionsFront(movesArray) {
+            var myCount = 0;
+            var pieceInFront = false;
             for (var j = 4; j < movesArray.length; j+=2) {
                if ((row > 2 && j > 4 && pieceColor == "white") || (row < 7 && j > 4 && pieceColor == "black")) {
                    break;
@@ -56,8 +58,14 @@ function highlightMoves(cell, myColor, pieceColor, oppPieceColor, movesArray, pi
                     colAux = convertNumberToLetter(colAux, colAux);
 
                     move = colAux + rowAux;
-
-                    if ((isInArray(move, allCells) && idHasClass(move, "empty")) || (isInArray(move, allCells) && myAux == 2)) {
+                    
+                    if (myCount == 0 && !idHasClass(move, "empty")) { // if it as the first check of cells and there is a piece in front of it
+                        pieceInFront = true;
+                    }
+                    
+                    myCount++;
+                   
+                    if ((isInArray(move, allCells) && idHasClass(move, "empty") && pieceInFront == false) || (isInArray(move, allCells) && myAux == 2)) {
                         myMoves.push(move);
                         getBackground(move, myBackground, myBackgrounds);
                     } else {
