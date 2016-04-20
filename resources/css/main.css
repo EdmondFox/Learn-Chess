@@ -116,12 +116,13 @@
 
 .row:nth-child(even) > .cell:nth-child(even),
 .row:nth-child(odd) > .cell:nth-child(odd) {
-    background:rgba(181, 136, 99, 0.8);
+    background:rgba(240, 217, 181, 0.9);
 }
 
 .row:nth-child(even) > .cell:nth-child(odd),
 .row:nth-child(odd) > .cell:nth-child(even) {
-    background:rgba(240, 217, 181, 0.9);
+    
+    background:rgba(181, 136, 99, 0.8);
 }
 
 
