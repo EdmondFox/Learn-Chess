@@ -1,7 +1,34 @@
 #container {
     position:relative;
-    width:1000px;
+    width:1250px;
     margin:0 auto;
+}
+
+#koDashboard {
+    display:inline-block;
+    width:180px;
+    height:320px;
+    margin-right: 15px;
+    border-top: 35px solid rgba(181, 136, 99, 1);
+    border-right: 35px solid rgba(174, 120, 76, 1);
+    border-bottom: 35px solid rgba(181, 136, 99, 1);
+    border-left: 35px solid rgba(174, 120, 76, 1);
+    background-color:rgba(181, 136, 99, 0.8);
+    box-shadow:0px 0px 1px 2px #6f543d;
+    vertical-align: top;
+}
+
+.koRow {
+    height:22.5px;
+    display:block;
+}
+
+.koCell {
+    display:table-cell; /* required instead of inline-block due to misplacement of cell when moving the pieces*/
+    width:22.5px;
+    height:22.5px;
+    text-align: center;
+    line-height: 22.5px;
 }
 
 #boardContainer {

@@ -9,6 +9,16 @@ var initial = [
     ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
     ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
 ];
+
+var kickedOut = [
+    ['&#9820;', '&#9820;', '&#9822;', '&#9822;', '&#9821;', '&#9821;', '&#9819;', '&#9818;'],
+    ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
+    ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
+    ['&#9814;', '&#9814;', '&#9816;', '&#9816;', '&#9815;', '&#9815;', '&#9813;', '&#9812;']
+]
+
+kickedOut.sort();
+
 // Array of classes for initial positioning
 var pieces = [
     ['filled black rook', 'filled black knight', 'filled black bishop', 'filled black queen', 'filled black king', 'filled black bishop', 'filled black knight', 'filled black rook'],
@@ -188,3 +198,18 @@ function resetBoard() {
 }
 
 resetBoard();
+
+function resetKoBoard() {
+    var board = document.getElementById("koDashboard");
+    board.innerHTML = ""; //reset board
+
+    for (var y = (size - 1) / 2, z = 0; y >= 0; y--, z++) {
+        var myRow = "";
+        for (var x = 0; x < size; x++) {
+            myRow += "<div class='koCell'>" + kickedOut[z][x] + "</div>";
+        }
+        board.innerHTML += "<div class='koRow'>" + myRow + "</div>";
+    }
+}
+
+resetKoBoard();
