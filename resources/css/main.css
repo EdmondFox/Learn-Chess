@@ -19,16 +19,16 @@
 }
 
 .koRow {
-    height:22.5px;
     display:block;
 }
 
 .koCell {
-    display:table-cell; /* required instead of inline-block due to misplacement of cell when moving the pieces*/
-    width:22.5px;
-    height:22.5px;
+    display:inline-block; /* required instead of inline-block due to misplacement of cell when moving the pieces*/
+    width:45px;
+    height:40px;
+    font-size:30px;
     text-align: center;
-    line-height: 22.5px;
+    line-height: 40px;
 }
 
 #boardContainer {

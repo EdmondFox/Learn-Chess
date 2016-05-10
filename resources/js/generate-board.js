@@ -10,14 +10,12 @@ var initial = [
     ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
 ];
 
-var kickedOut = [
-    ['&#9820;', '&#9820;', '&#9822;', '&#9822;', '&#9821;', '&#9821;', '&#9819;', '&#9818;'],
-    ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
-    ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
-    ['&#9814;', '&#9814;', '&#9816;', '&#9816;', '&#9815;', '&#9815;', '&#9813;', '&#9812;']
-]
+var koWhite = ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;','&#9814;', '&#9814;', '&#9816;', '&#9816;', '&#9815;', '&#9815;', '&#9813;', '&#9812;']
 
-kickedOut.sort();
+var koBlack = ['&#9820;', '&#9820;', '&#9822;', '&#9822;', '&#9821;', '&#9821;', '&#9819;', '&#9818;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;']
+
+//koWhite.sort();
+//koBlack.sort();
 
 // Array of classes for initial positioning
 var pieces = [
@@ -199,17 +197,20 @@ function resetBoard() {
 
 resetBoard();
 
-function resetKoBoard() {
-    var board = document.getElementById("koDashboard");
-    board.innerHTML = ""; //reset board
+// add all pieces to the "Taken Out" dashboard ----------------------------------------------------------------------
 
-    for (var y = (size - 1) / 2, z = 0; y >= 0; y--, z++) {
+var board = document.getElementById("koDashboard");
+board.innerHTML = "";
+
+function resetKoBoard(myArray) {
+    
+     //reset board
         var myRow = "";
-        for (var x = 0; x < size; x++) {
-            myRow += "<div class='koCell'>" + kickedOut[z][x] + "</div>";
+        for (var x = 0; x < myArray.length; x++) {
+            myRow += "<div class='koCell'>" + myArray[x] + "</div>";
         }
         board.innerHTML += "<div class='koRow'>" + myRow + "</div>";
-    }
 }
 
-resetKoBoard();
+resetKoBoard(koWhite);
+resetKoBoard(koBlack);
