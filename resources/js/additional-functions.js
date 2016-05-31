@@ -1,4 +1,4 @@
-// Additional functions ------------------------------------
+60, 27, 0// Additional functions ------------------------------------
  
 // Change background of selected cell
 
@@ -6,7 +6,7 @@ function changeSelectedBg(myId, myColor) {
    if (myAux == 1) {
         var selectedIdVar = document.getElementById(myId);
         var mySelectedBackground = getComputedStyle(selectedIdVar, null).getPropertyValue("background-color");
-        document.getElementById(myId).style.background = "-webkit-radial-gradient(center, ellipse cover, " + myColor + " 0%, " + myColor + " 55%, rgb(60, 27, 0) 63%, " + mySelectedBackground + " 66%, " + mySelectedBackground + " 100%)";
+        document.getElementById(myId).style.background = "-webkit-radial-gradient(center, ellipse cover, " + myColor + " 0%, " + myColor + " 55%, var(--highlight-shadow) 63%, " + mySelectedBackground + " 66%, " + mySelectedBackground + " 100%)";
     } else {
         document.getElementById(myId).style.background = myColor;
     }

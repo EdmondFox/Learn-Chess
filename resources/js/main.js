@@ -5,6 +5,10 @@
 
 // Move pieces ----------------------------------------------------------------------
 
+
+var logMoves = document.getElementById("myList");
+logMoves.innerHTML = ""; //reset dashboard
+
 var selected = false; //false if no piece has been selected 
 var myAux; // 1 is selected, 2 is replaced
 
@@ -42,18 +46,18 @@ function movePiece(cell) {
         selectedPiece = cell.innerHTML; // get the current piece (the character itself)
         selectedTitle = cell.getAttribute("title");
 
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", knightArray, "knight");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", knightArray, "knight");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", rookArray, "rook");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", rookArray, "rook");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", bishopArray, "bishop");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", bishopArray, "bishop");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", queenArray, "queen");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", queenArray, "queen");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", kingArray, "king");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", kingArray, "king");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "white", "black", whitePawnArray, "pawn");
-        highlightMoves(cell, "rgba(151, 95, 58, 0.8)", "black", "white", blackPawnArray, "pawn");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", knightArray, "knight");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", knightArray, "knight");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", rookArray, "rook");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", rookArray, "rook");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", bishopArray, "bishop");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", bishopArray, "bishop");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", queenArray, "queen");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", queenArray, "queen");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", kingArray, "king");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", kingArray, "king");
+        highlightMoves(cell, "var(--highlight-color)", "white", "black", whitePawnArray, "pawn");
+        highlightMoves(cell, "var(--highlight-color)", "black", "white", blackPawnArray, "pawn");
     } else { // To be replaced cell
         myAux = 2;
         toBeReplacedCell = cell;
@@ -63,17 +67,26 @@ function movePiece(cell) {
         toBeReplacedTitle = cell.getAttribute("title");
 
         if (selectedId != toBeReplacedId) { // catch and release piece if in the same place
+            //console.log("selectedId = " + selectedId + ", toBeReplacedId = " + toBeReplacedId + " " + document.getElementById(toBeReplacedId).innerHTML);
             var myBool = idHasClass(selectedId, "white");
-
+            
             var myBool2;
             if (idHasClass(toBeReplacedId, "white") && !idHasClass(toBeReplacedId, "empty")) {
-                myBool2 = "whitePiece";
+                myBool2 = "white-piece";
             } else if (idHasClass(toBeReplacedId, "black") && !idHasClass(toBeReplacedId, "empty")) {
-                myBool2 = "blackPiece";
+                myBool2 = "black-piece";
             } else {
-                myBool2 = "emptyCell";
+                myBool2 = "empty-cell";
             }
-
+/*
+            if (idHasClass(toBeReplacedId, "white")) { // add piece to taken pieces
+                var myTakenPiece = document.getElementById(toBeReplacedId).innerHTML;
+                koBlack.push(myTakenPiece);
+                koBlack.sort();
+                resetKoBoard(koBlack, "black-piece");
+                myTakenPiece = "";
+            }
+*/            
             toBeReplacedCell.innerHTML = selectedPiece; //Set the selected space to the piece that was grabbed
             toBeReplacedCell.className = selectedClass; //set the new class for the empty cell
             toBeReplacedCell.setAttribute("title", selectedTitle); //Set the new title for the new cell
@@ -83,9 +96,33 @@ function movePiece(cell) {
             selectedCell.setAttribute("title", "empty");
 
             if (myBool) {
-                logMoves.innerHTML = "<li><span class='whitePiece'>" + selectedPiece + "</span> " + selectedId + " - " + toBeReplacedId + " " + "<span class='replaced "+ myBool2 +"'>" + toBeReplacedPiece + "</span></li>" + logMoves.innerHTML;
+                logMoves.innerHTML = "<li class='white-piece-container'><span class='white-piece'>" + selectedPiece + "</span><span class='moves-data'>" + selectedId + " - " + toBeReplacedId + "</span>" + "<span class='replaced "+ myBool2 +"'>" + toBeReplacedPiece + "</span></li>" + logMoves.innerHTML;
+                
+                if (myBool2 == "black-piece") {
+                    var myTakenPiece = toBeReplacedPiece;
+                    console.log(myTakenPiece);
+                    koBlack.push(myTakenPiece);
+                    myTakenPiece = "";
+                }
+                
+                resetKoBoard(koWhite, "white-piece", "whiteTakenPieces");
+                resetKoBoard(koBlack, "black-piece", "blackTakenPieces");
+                
+                
             } else {
-                logMoves.innerHTML = "<li><span class='blackPiece'>" + selectedPiece + "</span> " + selectedId + " - " + toBeReplacedId + " " + "<span class='replaced "+ myBool2 +"'>" + toBeReplacedPiece + "</span></li>" + logMoves.innerHTML;
+                
+                if (myBool2 == "white-piece") {
+                    var myTakenPiece = toBeReplacedPiece;
+                    console.log(myTakenPiece);
+                    koWhite.push(myTakenPiece);
+                    myTakenPiece = "";
+                }
+                
+                resetKoBoard(koWhite, "white-piece", "whiteTakenPieces");
+                resetKoBoard(koBlack, "black-piece", "blackTakenPieces");
+                
+                
+                logMoves.innerHTML = "<li><span class='black-piece'>" + selectedPiece + "</span><span class='moves-data'>" + selectedId + " - " + toBeReplacedId + "</span>" + "<span class='replaced "+ myBool2 +"'>" + toBeReplacedPiece + "</span></li>" + logMoves.innerHTML;
             }
 
         }

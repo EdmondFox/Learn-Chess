@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="shortcut icon" type="image/x-icon" href="resources/images/pawn.png">
-	<title>Learn Chess</title>
-    
-    <meta charset="UTF-8">
-    <meta name="author" content="Fox Edmond">
-    <link rel="stylesheet" href="resources/css/main.css">    
-	
-</head>
-<body>
-    <div id="container">
-        <aside id="koDashboard">   
-        </aside>
-        <main id="boardContainer">
-            <div id="colIndicatorTop"></div>
-            <div id="rowIndicatorLeft"></div>
-            <div id="chessBoard"></div>
-            <div id="rowIndicatorRight"></div>
-            <div id="colIndicatorBottom"></div>  
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="resources/images/pawn.png">
+        <title>Learn Chess</title>
+
+        <meta charset="UTF-8">
+        <meta name="author" content="Fox Edmond">
+
+        <link rel="stylesheet" href="resources/css/main.css">    
+
+    </head>
+    <body>
+        <header>
+            <h1 class="title">Learn Chess</h1>
+        </header>
+
+        <main class="group">
+            <aside id="takenPieces">
+                <h2 class="title">Taken Pieces</h2>
+                <div id="takenPiecesContainer">
+                    <h3 class="title">White Pieces</h3>
+                    <div id="whiteTakenPieces"></div>
+                    <h3 class="title">Black Pieces</h3>
+                    <div id="blackTakenPieces"></div>
+                </div>
+            </aside>
+            
+            <section id="boardContainer">
+                <div id="boardTopIndicator" class="letter-indicator"></div>
+                <div class="clear"></div>
+                <div id="boardLeftIndicator" class="digit-indicator"></div>
+                <div id="chessBoard"></div>
+                <div id="boardRightIndicator" class="digit-indicator"></div>
+                <div class="clear"></div>
+                <div id="boardBottomIndicator"class="letter-indicator"></div>  
+            </section>
+
+            <aside id="dashboard">
+                <h2 class="title">Dashboard</h2>
+                <ol id="myList" reversed></ol>
+            </aside>
+
         </main>
-        <aside id="dashboard">
-                <ol id="myList" reversed></ol>    
-        </aside>
-    </div>
+
+        <footer>
+            
+        </footer>
     
-    <script src="resources/js/generate-board.js" type="text/javascript"></script>
-    <script src="resources/js/shadow-generator.js" type="text/javascript"></script>
-    <script src="resources/js/main.js" type="text/javascript"></script>
-    <script src="resources/js/highlight-function.js" type="text/javascript"></script>
-    <script src="resources/js/additional-functions.js" type="text/javascript"></script>
-    
-</body>
+        <script src="resources/js/generate-board.js" type="text/javascript"></script>
+        <script src="resources/js/taken-pieces.js" type="text/javascript"></script>
+        <script src="resources/js/shadow-generator.js" type="text/javascript"></script>
+        <script src="resources/js/main.js" type="text/javascript"></script>
+        <script src="resources/js/highlight-function.js" type="text/javascript"></script>
+        <script src="resources/js/additional-functions.js" type="text/javascript"></script>
+    </body>
 </html>
